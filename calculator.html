@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        gap: 10px;
+      }
+
+      .row:nth-of-type(1) {
+        display: grid;
+        grid-template-columns: minmax(auto, 300px) minmax(auto, 80px);
+        gap: 10px;
+      }
+
+      .row:nth-of-type(2) {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(auto, 1fr));
+        gap: 10px;
+      }
+
+      .row:nth-of-type(3) {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(auto, 1fr));
+        gap: 10px;
+      }
+      .row input {
+        padding: 10px;
+        text-align: center;
+      }
+      #display {
+        flex: 9;
+        margin-right: 5px;
+        text-align: left;
+      }
+      .clrBtn {
+        flex: 1;
+      }
+      .dot {
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="container">
+      <div class="row">
+        <input type="text" id="display" disabled name="display" />
+        <input
+          type="text"
+          class="clrBtn"
+          value="clear"
+          onclick="clearDisplay()"
+        />
+      </div>
+      <div class="row">
+        <input
+          type="button"
+          name="add"
+          value="+"
+          onclick="displayAppend('+', true)"
+        />
+        <input
+          type="button"
+          name="minus"
+          value="-"
+          onclick="displayAppend('-', true)"
+        />
+        <input
+          type="button"
+          name="divide"
+          value="/"
+          onclick="displayAppend('/', true)"
+        />
+        <input
+          type="button"
+          name="multiple"
+          value="*"
+          onclick="displayAppend('*', true)"
+        />
+      </div>
+      <div class="row">
+        <input type="button" name="1" value="1" onclick="displayAppend(1)" />
+        <input type="button" name="2" value="2" onclick="displayAppend(2)" />
+        <input type="button" name="3" value="3" onclick="displayAppend(3)" />
+        <input type="button" name="4" value="4" onclick="displayAppend(4)" />
+        <input type="button" name="5" value="5" onclick="displayAppend(5)" />
+        <input type="button" name="6" value="6" onclick="displayAppend(6)" />
+        <input type="button" name="7" value="7" onclick="displayAppend(7)" />
+        <input type="button" name="8" value="8" onclick="displayAppend(8)" />
+        <input type="button" name="9" value="9" onclick="displayAppend(9)" />
+        <input type="button" name="0" value="0" onclick="displayAppend(0)" />
+        <input
+          type="button"
+          name="."
+          value="."
+          class="dot"
+          onclick="displayAppend('.')"
+        />
+        <input type="button" name="equal" value="=" onclick="subtotal()" />
+      </div>
+    </form>
+    <script>
+      let result = 0;
+      let triggeredTotal = false;
+
+      function displayAppend(value, isOperator) {
+        if (isOperator) {
+          triggeredTotal = false;
+        }
+        if (triggeredTotal) {
+          clearDisplay();
+        }
+        console.log(value);
+        document.getElementById("display").value += value;
+      }
+
+      function subtotal() {
+        triggeredTotal = true;
+        const displayEquation = document.getElementById("display").value;
+        result = eval(displayEquation);
+        document.getElementById("display").value = result;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+        triggeredTotal = false;
+      }
+    </script>
+  </body>
+</html>
