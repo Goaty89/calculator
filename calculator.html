@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
     <style>
+      :root {
+        --blue: #b9e6ff;
+        --white: #faf0e6;
+        --coral: #f87575;
+        --light-coral: #ffa9a3;
+      }
       body {
         display: flex;
         justify-content: center;
@@ -37,18 +43,24 @@
         padding: 10px;
         text-align: center;
         box-shadow: 5px 5px #eee;
+        background-color: var(--blue);
         border-radius: 5px;
+        border: 0;
       }
       #display {
         flex: 9;
         margin-right: 5px;
         text-align: left;
+        color: var(--white);
+        background-color: var(--coral);
       }
       .clrBtn {
         flex: 1;
       }
-      .bold {
+      input.specialCharacter {
         font-weight: 800;
+        color: var(--white);
+        background-color: var(--light-coral);
       }
     </style>
   </head>
@@ -68,28 +80,28 @@
           type="button"
           name="add"
           value="+"
-          class="bold"
+          class="specialCharacter"
           onclick="displayAppend('+', true)"
         />
         <input
           type="button"
           name="minus"
           value="-"
-          class="bold"
+          class="specialCharacter"
           onclick="displayAppend('-', true)"
         />
         <input
           type="button"
           name="divide"
           value="/"
-          class="bold"
+          class="specialCharacter"
           onclick="displayAppend('/', true)"
         />
         <input
           type="button"
           name="multiple"
           value="*"
-          class="bold"
+          class="specialCharacter"
           onclick="displayAppend('*', true)"
         />
       </div>
@@ -103,15 +115,21 @@
         <input type="button" name="7" value="7" onclick="displayAppend(7)" />
         <input type="button" name="8" value="8" onclick="displayAppend(8)" />
         <input type="button" name="9" value="9" onclick="displayAppend(9)" />
-        <input type="button" name="0" value="0" onclick="displayAppend(0)" />
         <input
           type="button"
           name="."
           value="."
-          class="bold"
+          class="specialCharacter"
           onclick="displayAppend('.')"
         />
-        <input type="button" name="equal" value="=" onclick="subtotal()" />
+        <input type="button" name="0" value="0" onclick="displayAppend(0)" />
+        <input
+          type="button"
+          name="equal"
+          value="="
+          class="specialCharacter"
+          onclick="subtotal()"
+        />
       </div>
     </form>
     <script>
