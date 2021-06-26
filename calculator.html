@@ -36,6 +36,8 @@
       .row input {
         padding: 10px;
         text-align: center;
+        box-shadow: 5px 5px #eee;
+        border-radius: 5px;
       }
       #display {
         flex: 9;
@@ -45,7 +47,7 @@
       .clrBtn {
         flex: 1;
       }
-      .dot {
+      .bold {
         font-weight: 800;
       }
     </style>
@@ -55,7 +57,7 @@
       <div class="row">
         <input type="text" id="display" disabled name="display" />
         <input
-          type="text"
+          type="button"
           class="clrBtn"
           value="clear"
           onclick="clearDisplay()"
@@ -66,24 +68,28 @@
           type="button"
           name="add"
           value="+"
+          class="bold"
           onclick="displayAppend('+', true)"
         />
         <input
           type="button"
           name="minus"
           value="-"
+          class="bold"
           onclick="displayAppend('-', true)"
         />
         <input
           type="button"
           name="divide"
           value="/"
+          class="bold"
           onclick="displayAppend('/', true)"
         />
         <input
           type="button"
           name="multiple"
           value="*"
+          class="bold"
           onclick="displayAppend('*', true)"
         />
       </div>
@@ -102,7 +108,7 @@
           type="button"
           name="."
           value="."
-          class="dot"
+          class="bold"
           onclick="displayAppend('.')"
         />
         <input type="button" name="equal" value="=" onclick="subtotal()" />
