@@ -1,0 +1,123 @@
+:root {
+  --blue: #b9e6ff;
+  --dark-blue: #0060df;
+  --lighter-blue: #9ceff3;
+  --light-blue: #47a7f5;
+  --dark-grey-blue: #0b75bf;
+  --white: #fefefe;
+  --white-yellow: #faf0e6;
+  --white-grey: #f4f4f4;
+  --light-grey: #eeeeee;
+  --coral: #f87575;
+  --light-coral: #ffa9a3;
+  --black-grey: #2e2e2e;
+  --black: #000000;
+  --black-light: #2e5157;
+  --green: #35a575;
+}
+.theme-light {
+  --color-primary: var(--blue);
+  --color-secondary: var(--white-yellow);
+  --color-accent: var(--light-coral);
+  --font-color: var(--black);
+  --background-color: var(--white);
+  --shadow-color: var(--light-grey);
+  --active-color: var(--lighter-blue);
+}
+
+.theme-dark {
+  --color-primary: var(--dark-blue);
+  --color-secondary: var(--black-light);
+  --color-accent: var(--green);
+  --font-color: var(--white-grey);
+  --background-color: var(--black);
+  --shadow-color: var(--black-grey);
+  --active-color: var(--dark-grey-blue);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--font-color);
+  background-color: var(--background-color);
+  transition: background 1s;
+}
+input,
+button {
+  color: var(--font-color);
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+.dark-mode {
+  background-color: var(--color-primary);
+  color: var(--font-color);
+}
+
+.container {
+  max-width: max-content;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+}
+
+.row:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: minmax(auto, 300px) minmax(auto, 80px);
+  gap: 10px;
+}
+
+.row:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto, 1fr));
+  gap: 10px;
+}
+
+.row:nth-of-type(3) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 1fr));
+  gap: 10px;
+}
+.row input {
+  padding: 10px;
+  text-align: center;
+  box-shadow: 2px 2px var(--shadow-color);
+  background-color: var(--color-secondary);
+  border-radius: 5px;
+  border: 0;
+  background-position: center;
+  transition: background 0.8s;
+}
+.row input[type="button"]:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+    center/15000%;
+}
+.row input[type="button"]:active {
+  background-color: var(--active-color);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+#display {
+  flex: 9;
+  margin-right: 5px;
+  text-align: left;
+  color: var(--font-color);
+  background-color: var(--color-accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.clrBtn {
+  flex: 1;
+}
+input.specialCharacter {
+  font-weight: 800;
+  color: var(--font-color);
+  background-color: var(--color-accent);
+}
+#changeTheme {
+  margin-top: 20%;
+  border: 0;
+  padding: 8px;
+  border-radius: 5px;
+}
