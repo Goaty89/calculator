@@ -42,6 +42,7 @@ body {
   color: var(--font-color);
   background-color: var(--background-color);
   transition: background 1s;
+  min-height: 100vh;
 }
 input,
 button {
@@ -59,6 +60,9 @@ button {
   display: grid;
   grid-template-rows: auto auto auto;
   gap: 10px;
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+  padding: 18px;
 }
 
 .row:nth-of-type(1) {
